@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+		html,body{
+			margin:0;background: black;
+		}
+		/*创建box*/
+		#stars{  
+			z-index: 2;
+			margin: 0 auto;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;	
+		}
+		/*画出流星的形状*/
+		.star{
+			display: block;
+			opacity: 0;
+			position: relative;
+			left: 90%;
+			width: 1px;
+			background: transparent;
+			/*流星动画*/
+			animation: star-fall 3s linear infinite;
+		}
+		/*流星后面的尾巴*/
+		.star:after{
+			content: ' ';
+			display: block;
+			border: 1px solid #fff;
+			border-width: 0px 100px 2px 150px;
+			left:5px;
+			transform: rotate(-45deg);
+			border-color:transparent transparent transparent #eee;
+		}
+		/*创建动画，实现流星划过、渐入渐隐的效果*/
+		@keyframes star-fall{
+			0%{
+				opacity: 0;
+				transform: scale(0.5) translate3d(0,0);
+
+			}
+			50%{
+				opacity: 1;
+				transform: translate3d(-200px, 200px, 0);
+
+			}
+			100% {
+		        opacity: 0;
+		        transform: scale(1.2) translate3d(-300px, 300px, 0);
+		      }
+		}
+	</style>
+    <style>
+	.hh{
+		position:absolute;
+		top:3%;
+		left:30%;
+		color:#00F;
+		font-size:36px;
+		text-decoration: none;}
+		.t{
+			position:absolute;
+			top:50%;
+			left:10%;
+			color:#0CF;
+			font-size:24px;
+			width:80%;
+			height:auto;}
+			.q{
+				position:absolute;
+				top:13%;
+				left:10%;
+				}
+				.rt{
+				position:absolute;
+				top:13%;
+				right:10%;
+				}
+				img{
+					width:300px;
+					height:250px;}
+						.we{
+				position:absolute;
+				top:13%;
+				left:40%;
+				}
+				
+	</style>
+</head>
+<body>
+
+
+
+
+<div id="stars">
+		<div class="star"></div>
+	</div>
+	<script>
+		window.onload=function(){
+			var stars = document.getElementById('stars');  //获取stars Box
+			var star = document.getElementsByClassName('star');  //获取全部流星
+			var mywidth = document.documentElement.clientWidth;  //获取当前可视宽度
+		    var myheight = document.documentElement.clientHeight;  //获取当前可视高度
+
+		    //初始化流星个数 和 left,top值
+			for(let i=0;i<45;i++){
+				let newStar = document.createElement('div');
+				newStar.className = "star"
+				newStar.style.top = randomNumber(myheight*.3, -myheight*.2) + 'px'
+			    newStar.style.left = randomNumber(mywidth*1.3, 0) + 'px'
+			    stars.appendChild(newStar)
+			}
+
+			//封装随机数函数
+			function randomNumber (max, min) {
+			   let randomnum = Math.floor(Math.random() * (max - min + 1) + min)
+			   return randomnum
+			}
+
+			// 给流星添加动画延时
+		 for (let i = 0, len = star.length; i < len; i++)
+			{
+			  star[i].style.animationDelay = i % 6 == 0 ? '0s' : i * 0.8 + 's';
+			}
+		}
+	</script>
+    
+    <div class="hh">预测一场流星雨，没想象中那么简单</div>
+    <div class="t">通过母彗星预测流星雨
+　　绕太阳运动的流星体，绝大部分是来自彗星轨道的尘埃。假如母彗星的轨道比较稳定，预测流星雨的发生相对就比较简单。“当彗星轨道和地球轨道接近时，意味着彗星轨道附近的尘埃离地球也比较近，地球在公转过程中就有可能遇见这些小尘埃。”北京天文馆馆长朱进告诉科技日报记者，以狮子座流星雨为例，它的母彗星每33年绕太阳一圈，具有周期性，所以能根据彗星轨道推测狮子座流星雨出现的时间。
+　　但不是所有的彗星都能轻易被找到。观测能力不够或彗星已经碎掉时，通过母彗星找流星就好比缘木求鱼。
+　　这时候，历史资料的重要性就凸显出来。“一般来说，流星雨被观测得越多，预测就越准。比如，狮子座流星雨的预测相对准确，就是因为对它观测时间长且观测资料丰富。”朱进说。
+　　对流星体群本身的观测也能派上用场。“经过多站观测可以获得流星体群一些动力学参数，据此可大概判断流星体群的状况。”朱进表示。
+　　流星体群的密度有大有小，对应着流星雨的流量有大有小。有时，一场流星雨会在一小时内出现上百颗流星。当流星雨的每小时天顶流量超过1000时，被称为“流星暴”。</div>
+<div class="q"><img src="images/31.jpg"></div>
+<div class="we"><img src="images/32.jpg"></div>
+<div class="rt"><img src="images/33.jpg"></div>
+</body>
+</html>

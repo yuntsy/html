@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+	body{
+			width: 100%;
+			height: 1000px;
+			background: linear-gradient(to bottom right, #000, #2073c2 60%, #dff6ff);
+			overflow: hidden;
+		}
+		span{
+			display: block;
+			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0.4px 0.4px 0.4px 0px #fff;
+		}
+
+
+
+
+
+
+
+</style>
+<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				overflow: hidden;
+			}
+			
+			#box {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#black {
+				position: fixed;
+				width: 0px;
+				height: 0px;
+				left: 951px;
+				top: 408px;
+				position: relative;
+				animation: rotates 15s linear infinite;
+			}
+			
+			@keyframes rotates {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			
+			#box ul li {
+				position: absolute;
+				z-index: 2;
+				list-style: none;
+				transition: all .28s ease-in .10s;
+			}
+			
+			#box ul li:nth-child(1) {
+				left: 30px;
+				top: 500px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(2) {
+				left: 30px;
+				top: 650px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(3) {
+				left: 230px;
+				top: 650px;
+				width: 150px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(4) {
+				left: 30px;
+				top: 780px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(5) {
+				left: 850px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(6) {
+				left: 960px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(7) {
+				left: 1070px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(8) {
+				left: 1180px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li img {
+				width: 100%;
+				height: 100%;
+			}
+
+
+
+.hh{
+		position:absolute;
+		top:3%;
+		left:15%;
+		color:#F00;
+		font-size:36px;
+	
+}
+.t{
+			position:absolute;
+			top:50%;
+			left:10%;
+			color:#0F0;
+			font-size:24px;
+			width:80%;
+			height:auto;}
+			.q{
+				position:absolute;
+				top:13%;
+				left:10%;
+				}
+				.rt{
+				position:absolute;
+				top:13%;
+				right:10%;
+				}
+				img{
+					width:300px;
+					height:250px;}
+						.we{
+				position:absolute;
+				top:13%;
+				left:40%;
+				}
+</style>
+
+      
+    </head>
+    <body>
+  <div class="stars"></div>
+  <script>
+  window.onload = function(){
+		var screenW = document.documentElement.clientWidth;
+		var screenH = document.documentElement.clientHeight;
+		var colorArr = ['#fff','skyblue','orange'];
+		console.log(screenW);
+		for( var i=0; i<800; i++ ){
+			var span = document.createElement('span');
+			var width = Math.random() * 3;
+			var colorIndex = parseInt(Math.random() * 3);
+			var x = parseInt(Math.random() * screenW);
+			var y = parseInt(Math.random() * screenH);
+			span.style.width = parseInt(width) + 'px';
+			span.style.height = parseInt(width) + 'px';
+			span.style.background = colorArr[colorIndex];
+			span.style.left = x + 'px';
+			span.style.top = y + 'px';
+ 
+			document.body.appendChild(span);
+		}
+	}
+
+
+  </script>
+  
+<div id="box">
+			<img src="images/20.jpg" id="black" />
+			<ul id="content">
+				<li>
+					<a href="#">
+						<img src="images/21.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/22.jpg" />
+					</a>
+					<li>
+						<a href="#">
+							<img src="images/23.jpg" />
+						</a>
+						<li>
+							<a href="#">
+								<img src="images/24.jpg" />
+							</a>
+							<li>
+								<a href="#">
+									<img src="images/25.jpg" />
+								</a>
+								<li>
+									<a href="#">
+										<img src="images/26.jpg" />
+									</a>
+									<li>
+										<a href="#">
+											<img src="images/27.jpg" />
+										</a>
+										<li>
+											<a href="#">
+												<img src="images/28.jpg" />
+											</a>
+										</li>
+			</ul>
+
+	</div>
+
+<script>
+var oBlack = document.getElementById("black")
+			var oUl=document.getElementById("content")
+			var oLi=oUl.getElementsByTagName("li")
+			console.log(oLi)
+			var cX = document.documentElement.clientWidth / 2;
+			var cY = document.documentElement.clientHeight / 2;
+			var j = cX
+			var k = cY
+			var timer
+			console.log(k)
+			var i = 0;
+			timer = setInterval(function() {
+				i += 4;
+				j-=2;
+				k-=2;
+				if(i == 500) {
+					clearInterval(timer)
+					enlarge(i, j, k)
+					inhalation(j,k)
+				}
+				move(i, j, k)
+			}, 6)
+			//旋转放大
+			function enlarge(i,j,k) {
+				setTimeout(function() {
+					timer = setInterval(function() {
+						i += 4;
+						j-=2;
+						k-=2;
+						if(i == 2000) {
+							clearInterval(timer)
+							sharik(i,j,k)
+						}
+						move(i, j, k)
+					}, 5)
+				}, 150)
+			}
+			//旋转收缩
+			function sharik(i,j,k){
+				timer = setInterval(function() {
+						i -= 8;
+						j+=4;
+						k+=4;
+						if(i == 2000) {
+							clearInterval(timer)
+						}
+						move(i, j, k)
+					}, 1)
+			}
+			//吸入效果
+			function inhalation(j,k){
+				console.log(j)
+				for (var i=0;i<oLi.length;i++) {
+					oLi[i].style.width = 0 + "px";
+					oLi[i].style.height = 0 + "px";
+					oLi[i].style.left=589+"px";
+					oLi[i].style.top=460+"px"
+				}
+				
+			}
+			
+			//inhalation()
+			
+			//公共动画
+			function move(i, j, k) {
+				oBlack.style.width = i + "px";
+				oBlack.style.height = i + "px";
+				oBlack.style.left = j + "px";
+				oBlack.style.top = k + "px";
+
+}</script>
+<div class="hh">最新消息！科学家发现一种罕见的黑洞可能正在银河系附近游荡！</div> 
+<div class="t">最新消息，来自NASA的科学家们认为他们发现了一个罕见的木星大小的黑洞在银河系中漫步。这一则骇人听闻的消息立即引起了科学界的轰动。黑洞，密度趋于无限大的神秘天体，在它的视界内，任何物体都无法逃脱它的吞噬，包括目前已知宇宙最快的物体---光（光速每秒30W公里），就是这样一个宇宙的掠食者竟然轻易地四处游荡，肆意游走于宇宙空间，所到之处必然寸草不生，而且竟然来到了我们的星系---银河系附近。所幸据科学家表示，该黑洞仅有木星大小，质量约为太阳的3万倍，与我们银河系中心相当太阳质量400万倍超大质量黑洞相比，那就是小巫见大巫了！但是这个黑洞的类型比较罕见，它属于中等体型。在宇宙中，微小的黑洞和超大质量的黑洞非常普遍，但是中等大小的黑洞并不多。天文学家相信他们已经在银河系中心附近发现了两个同样大小的黑洞。如果未来的观测继续发现它们存在的证据，那么这三颗行星可能都是从我们星系中心的巨大黑洞中逃脱出来的。</div>
+
+<div class="q"><img src="images/40.png"></div>
+<div class="we"><img src="images/41.png"></div>
+<div class="rt"><img src="images/42.png"></div>
+    </body>
+</html>

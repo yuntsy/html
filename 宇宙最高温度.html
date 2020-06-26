@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+	body{
+			width: 100%;
+			height: 1000px;
+			background: linear-gradient(to bottom right, #000, #2073c2 60%, #dff6ff);
+			overflow: hidden;
+		}
+		span{
+			display: block;
+			position: absolute;
+			border-radius: 50%;
+			box-shadow: 0.4px 0.4px 0.4px 0px #fff;
+		}
+
+
+
+
+
+
+
+</style>
+<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				overflow: hidden;
+			}
+			
+			#box {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#black {
+				position: fixed;
+				width: 0px;
+				height: 0px;
+				left: 951px;
+				top: 408px;
+				position: relative;
+				animation: rotates 15s linear infinite;
+			}
+			
+			@keyframes rotates {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			
+			#box ul li {
+				position: absolute;
+				z-index: 2;
+				list-style: none;
+				transition: all .28s ease-in .10s;
+			}
+			
+			#box ul li:nth-child(1) {
+				left: 30px;
+				top: 500px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(2) {
+				left: 30px;
+				top: 650px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(3) {
+				left: 230px;
+				top: 650px;
+				width: 150px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(4) {
+				left: 30px;
+				top: 780px;
+				width: 120px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(5) {
+				left: 850px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(6) {
+				left: 960px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(7) {
+				left: 1070px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li:nth-child(8) {
+				left: 1180px;
+				top: 165px;
+				width: 90px;
+				height: 90px;
+			}
+			
+			#box ul li img {
+				width: 100%;
+				height: 100%;
+			}
+
+</style>
+
+      
+    </head>
+    <body>
+  <div class="stars"></div>
+  <script>
+  window.onload = function(){
+		var screenW = document.documentElement.clientWidth;
+		var screenH = document.documentElement.clientHeight;
+		var colorArr = ['#fff','skyblue','orange'];
+		console.log(screenW);
+		for( var i=0; i<800; i++ ){
+			var span = document.createElement('span');
+			var width = Math.random() * 3;
+			var colorIndex = parseInt(Math.random() * 3);
+			var x = parseInt(Math.random() * screenW);
+			var y = parseInt(Math.random() * screenH);
+			span.style.width = parseInt(width) + 'px';
+			span.style.height = parseInt(width) + 'px';
+			span.style.background = colorArr[colorIndex];
+			span.style.left = x + 'px';
+			span.style.top = y + 'px';
+ 
+			document.body.appendChild(span);
+		}
+	}
+
+
+  </script>
+  
+<div id="box">
+			<img src="images/20.jpg" id="black" />
+			<ul id="content">
+				<li>
+					<a href="#">
+						<img src="img/1.jpg" />
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/2.jpg" />
+					</a>
+					<li>
+						<a href="#">
+							<img src="img/3.jpg" />
+						</a>
+						<li>
+							<a href="#">
+								<img src="img/4.jpg" />
+							</a>
+							<li>
+								<a href="#">
+									<img src="img/5.jpg" />
+								</a>
+								<li>
+									<a href="#">
+										<img src="img/6.jpg" />
+									</a>
+									<li>
+										<a href="#">
+											<img src="img/7.jpg" />
+										</a>
+										<li>
+											<a href="#">
+												<img src="img/8.jpg" />
+											</a>
+										</li>
+			</ul>
+
+	</div>
+
+<script>
+var oBlack = document.getElementById("black")
+			var oUl=document.getElementById("content")
+			var oLi=oUl.getElementsByTagName("li")
+			console.log(oLi)
+			var cX = document.documentElement.clientWidth / 2;
+			var cY = document.documentElement.clientHeight / 2;
+			var j = cX
+			var k = cY
+			var timer
+			console.log(k)
+			var i = 0;
+			timer = setInterval(function() {
+				i += 4;
+				j-=2;
+				k-=2;
+				if(i == 500) {
+					clearInterval(timer)
+					enlarge(i, j, k)
+					inhalation(j,k)
+				}
+				move(i, j, k)
+			}, 6)
+			//旋转放大
+			function enlarge(i,j,k) {
+				setTimeout(function() {
+					timer = setInterval(function() {
+						i += 4;
+						j-=2;
+						k-=2;
+						if(i == 2000) {
+							clearInterval(timer)
+							sharik(i,j,k)
+						}
+						move(i, j, k)
+					}, 5)
+				}, 150)
+			}
+			//旋转收缩
+			function sharik(i,j,k){
+				timer = setInterval(function() {
+						i -= 8;
+						j+=4;
+						k+=4;
+						if(i == 2000) {
+							clearInterval(timer)
+						}
+						move(i, j, k)
+					}, 1)
+			}
+			//吸入效果
+			function inhalation(j,k){
+				console.log(j)
+				for (var i=0;i<oLi.length;i++) {
+					oLi[i].style.width = 0 + "px";
+					oLi[i].style.height = 0 + "px";
+					oLi[i].style.left=589+"px";
+					oLi[i].style.top=460+"px"
+				}
+				
+			}
+			
+			//inhalation()
+			
+			//公共动画
+			function move(i, j, k) {
+				oBlack.style.width = i + "px";
+				oBlack.style.height = i + "px";
+				oBlack.style.left = j + "px";
+				oBlack.style.top = k + "px";
+
+}</script>
+    </body>
+</html>
